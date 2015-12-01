@@ -198,6 +198,13 @@ public final class MediaCodecUtil {
       return false;
     }
 
+    if (Util.SDK_INT == 16
+            && "OMX.qcom.video.decoder.vc1".equals(name)
+            && ("ville".equals(Util.DEVICE) // HTC One S
+            )) {
+      return false;
+    }
+
     // Work around an issue where large timestamps are not propagated correctly.
     if (Util.SDK_INT == 16
         && "OMX.qcom.audio.decoder.aac".equals(name)
